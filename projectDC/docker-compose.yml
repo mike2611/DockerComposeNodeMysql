@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  database:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: contrasena
+      MYSQL_DATABASE: db_raza
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: contrasena
+    ports:
+      - "3306:3306"
+
+  backend:
+    build: ./backEnd
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - '/app/node_modules'
+    depends_on:
+      - database
+
+  frontend:
+    build: ./frontEnd
+    ports:
+      - "4200:80"

@@ -1,0 +1,23 @@
+<div class="mt-4 ms-5">
+    <h3>Ingresa la raza del perro</h3>
+    <form (ngSubmit) = "onSubmit()">
+        <div class="ps-5 pe-5">
+            <p>Raza: </p>
+            <input type="text" class="form-control form-control-sm" [(ngModel)]="formData.nombre" name="nombre">
+            <p>Descripcion: </p>
+            <input type="text" class="form-control" [(ngModel)]="formData.descripcion" name="descripcion">
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+    <div class="mt-4 ms-5">
+        <h3>Lista de Razas</h3>
+        <ul>
+          <li *ngFor="let raza of razas">
+            {{ raza.nombre }} - {{ raza.descripcion }}
+          </li>
+        </ul>
+      </div>
+      
+</div>
